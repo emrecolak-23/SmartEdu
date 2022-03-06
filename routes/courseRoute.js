@@ -5,4 +5,6 @@ const router = express.Router();
 
 router.route('/').post(CourseController.createCourse).get(CourseController.getAllCourse)
 
+router.route('/:slug').get(CourseController.getCourse);
+
 module.exports = router;

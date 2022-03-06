@@ -18,15 +18,30 @@ exports.createCourse = async (req, res) => {
 
 exports.getAllCourse = async (req, res) => {
   try {
-    const courses = await Course.find().sort('-createdAt');
-    res.status(200).render("courses",{
+    const courses = await Course.find().sort("-createdAt");
+    res.status(200).render("courses", {
       page_name: "course",
-      courses
-    })
+      courses,
+    });
   } catch (err) {
     res.status(400).json({
       status: "Something went wrong",
-      err
+      err,
+    });
+  }
+};
+
+exports.getCourse = async (req, res) => {
+  try {
+    const course = await Course.findOne({slug:req.params.slug});
+
+    res.status(200).render("course-single", {
+      page_name: "course-single",
+      course,
+    });
+  } catch (error) {
+    res.status(400).json({
+      error,
     });
   }
 };
