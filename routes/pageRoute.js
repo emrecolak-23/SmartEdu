@@ -1,4 +1,6 @@
 const PageController = require("../controllers/pageController");
+const RedirectMiddleware = require("../middlewares/redirectMiddlewares");
+
 
 const express = require("express");
 
@@ -11,9 +13,9 @@ router.route("/").get(PageController.getHomePage);
 router.route("/about").get(PageController.getAboutPage);
 
 // Register Page
-router.route("/register").get(PageController.getRegisterPage);
+router.route("/register").get(RedirectMiddleware,PageController.getRegisterPage);
 
 // Login Page
-router.route("/login").get(PageController.getLoginPage);
+router.route("/login").get(RedirectMiddleware,PageController.getLoginPage);
 
 module.exports = router;
