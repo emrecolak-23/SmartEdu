@@ -5,10 +5,7 @@ exports.createCourse = async (req, res) => {
   const course = await Course.create(req.body);
 
   try {
-    res.status(201).json({
-      status: "Course successfuly created",
-      course,
-    });
+    res.status(201).redirect('/course');
   } catch (error) {
     res.status(400).json({
       status: "Course not created",
