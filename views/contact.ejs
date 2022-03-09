@@ -19,6 +19,20 @@
                 <div class="col-xl-12 col-md-12 col-sm-12">
                     <div class="contact_form">
                         <div id="message"></div>
+
+                        <% if(flashMessages) { %> 
+
+                            <% if(flashMessages.success) { %> 
+                                <div class="alert alert-success">
+                                    <%= flashMessages.success  %> 
+                                </div>
+                            
+                            <% } else if (flassMessages.error) { %> 
+                                <div class="alert alert-danger">
+                                    <%= flashMessages.error  %> 
+                                </div>
+                            <% } %> 
+                        <% } %> 
                         <form id="contactform" class="" action="/contact" name="contactform" method="post">
                             <div class="row row-fluid">
                                 <div class="col-lg-6 col-md-6 col-sm-6">
