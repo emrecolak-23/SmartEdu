@@ -18,4 +18,8 @@ router.route("/register").get(RedirectMiddleware,PageController.getRegisterPage)
 // Login Page
 router.route("/login").get(RedirectMiddleware,PageController.getLoginPage);
 
+// Contact Page
+router.route("/contact").get(PageController.getContactPage);
+
+
 module.exports = router;
