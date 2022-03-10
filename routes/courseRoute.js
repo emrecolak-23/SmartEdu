@@ -15,4 +15,6 @@ router.route('/release').post(CourseController.releaseCourse);
 
 router.route('/:slug').delete(CourseController.deleteCourse);
 
+router.route('/:slug').put(CourseController.updateCourse);
+
 module.exports = router;
