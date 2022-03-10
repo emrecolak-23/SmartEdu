@@ -78,9 +78,23 @@
             <h3 class="author_name"><a href="#"><%= user.name  %> </a></h3>
             <h5><%= user.role  %>  at <a href="#">SmartEDU</a></h5>
           </div>
-        
         </div>
       </div>
+      <div class="col-md-12">
+      <% if(flashMessages) { %> 
+    
+        <% if (flashMessages.success) { %> 
+            <div class="alert alert-success">
+                <%= flashMessages.success  %> 
+            </div>
+        
+        <% } else if (flashMessages.error) { %> 
+            <div class="alert alert-danger">
+                <%= flashMessages.error  %> 
+            </div>
+        <% } %> 
+    <% } %>
+    </div>
       <!-- end col -->
     </div>
     <!-- end row -->
@@ -99,6 +113,18 @@
               <p>
                 <%= courses[i].description  %> 
               </p>
+            </div>
+            <div class="clearfix">
+              <ul style="list-style-type: none;">
+                <li style="float: left;"><button class="btn btn-warning rounded-0 text-white">
+                  <span>UPDATE</span>
+                </button></li>
+                <li style="float: right;"><a href="/course/<%= courses[i].slug %>?_method=DELETE" 
+                  onclick="return confirm('Are you sure?')"
+                  class="btn btn-danger rounded-0 text-white">
+                  DELETE
+                </a></li>
+              </ul>
             </div>
           </div>
         </div>
